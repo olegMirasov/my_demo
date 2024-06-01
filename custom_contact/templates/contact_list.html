@@ -1,0 +1,32 @@
+{% load custom_contact_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact list</title>
+    <style>
+        .cell {
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 0.2cm;
+            margin-left: 1cm;
+            font-family: 'Courier New', Courier, monospace;
+            padding-left: 0.5cm;
+            width: 10cm;
+        }
+    </style>
+</head>
+<body>
+
+{% for contact in contacts %}
+<div class="cell">
+    {% for item in item_list %}
+        <p>{{ item }}: {{ contact|keyvalue:item}}</p>
+    {% endfor %}
+</div>
+
+{% endfor %}
+
+</body>
+</html>
