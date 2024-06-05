@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'deal_for_powerbi',
     'autocomplete_crm_tasks',
     'move_tasks_deadline_js',
-    'custom_contact'
+    'custom_contact',
+    'my_call_load'
 ]
 
 MIDDLEWARE = [

@@ -47,7 +47,8 @@ urlpatterns = [
     path('deal_for_powerbi/', include('deal_for_powerbi.urls')),
     path('autocomplete_crm_tasks/', include('autocomplete_crm_tasks.urls')),
     path('move_tasks_deadline_js/', include('move_tasks_deadline_js.urls', 'move_tasks_deadline_js')),
-    path('contact/', include('custom_contact.urls'))
+    path('contact/', include('custom_contact.urls')),
+    path('load_call/', include('my_call_load.urls'))
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

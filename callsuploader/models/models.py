@@ -25,7 +25,6 @@ class NumberChoicesAddToChat(models.IntegerChoices):
     one = 1, 'Уведомлять'
 
 
-
 class CallInfo(models.Model):
     user_phone = models.CharField(max_length=20, null=False, blank=False)
     user_id = models.IntegerField(blank=False, null=False)
@@ -73,9 +72,10 @@ class CallInfo(models.Model):
             "CALL_ID": self.call_id,
             "USER_ID": self.user_id,
             "DURATION": self.duration,
-            "RECORD_URL": f'https://{settings.APP_SETTINGS.app_domain}/media/{self.inner_media_path}{self.filename}.mp3',
+
             "ADD_TO_CHAT": self.add_to_chat,
         })
+        # "RECORD_URL": f'https://{settings.APP_SETTINGS.app_domain}/media/{self.inner_media_path}{self.filename}.mp3',
 
     def wav_maker_n_messages(self, but):
         ne_path = os.path.join(settings.BASE_DIR, "media", self.inner_media_path, self.filename).replace(r"\\", "/")
