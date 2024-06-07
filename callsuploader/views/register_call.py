@@ -7,7 +7,6 @@ from ..forms import CallInfoForm
 @main_auth(on_cookies=True)
 def reg_call(request):
     but = request.bitrix_user_token
-    # 'a23d5b66006e391a006e38f400000001000007dbba8996ade8b0b475aa654b1dac2a82'
 
     if request.method == 'POST':
         form = CallInfoForm(request.POST, request.FILES)

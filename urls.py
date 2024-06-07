@@ -48,7 +48,8 @@ urlpatterns = [
     path('autocomplete_crm_tasks/', include('autocomplete_crm_tasks.urls')),
     path('move_tasks_deadline_js/', include('move_tasks_deadline_js.urls', 'move_tasks_deadline_js')),
     path('contact/', include('custom_contact.urls')),
-    path('load_call/', include('my_call_load.urls'))
+    path('load_call/', include('my_call_load.urls')),
+    path('my_find_duplicate/', include('my_find_duplicate.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

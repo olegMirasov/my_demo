@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'autocomplete_crm_tasks',
     'move_tasks_deadline_js',
     'custom_contact',
-    'my_call_load'
+    'my_call_load',
+    'my_find_duplicate',
 ]
 
 MIDDLEWARE = [

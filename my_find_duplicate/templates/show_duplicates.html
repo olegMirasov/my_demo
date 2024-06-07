@@ -1,0 +1,31 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+    Найдены следующие дубликаты товаров на портале
+{% endblock %}
+
+{% block header %}
+    <div class="header">
+        <h1>Найдены следующие дубликаты на портале:</h1>
+        <button onclick="document.location='{% url 'reload_start'%}'">Назад</button>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <table>
+          <tr>
+            <th>{{ field }}</th>
+            <th>Количество дубликатов</th>
+            <th>ID дубликатов</th>
+          </tr>
+          {% for item in data %}
+              <tr>
+                <td>{{ item.field }}</td>
+                <td>{{ item.count }}</td>
+                <td>{{ item.IDs }}</td>
+              </tr>
+          {% endfor %}
+        </table>
+    </div>
+{% endblock %}
