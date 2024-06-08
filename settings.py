@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'custom_contact',
     'my_call_load',
     'my_find_duplicate',
+    'my_manager_search',
 ]
 
 MIDDLEWARE = [

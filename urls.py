@@ -50,6 +50,7 @@ urlpatterns = [
     path('contact/', include('custom_contact.urls')),
     path('load_call/', include('my_call_load.urls')),
     path('my_find_duplicate/', include('my_find_duplicate.urls')),
+    path('my_manager_search/', include('my_manager_search.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

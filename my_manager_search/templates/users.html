@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Демо приложение</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            border: solid 1px black;
+            border-radius: 3px;
+        }
+
+        .header_units {
+            margin-top: 5px;
+            margin-left: 0.5cm;
+            vertical-align: top;
+            width: auto;
+        }
+
+        .button_all {
+            margin-right: 5px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            padding-top: 1cm;
+        }
+
+        .element {
+            height: 0.8cm;
+        }
+    </style>
+</head>
+<body>
+   <div class="header">
+        <p class="header_units">Выберите сотрудника для поиска руководителя</p>
+        <a href="{{ all }}"  class="header_units button_all"><button>Вывести для всех</button></a>
+    </div>
+    <h2>Список сотрудников</h2>
+    <table>
+        <tr>
+            <th>ID | Полное имя</th>
+        </tr>
+        {% for link, text in users %}
+            <tr>
+                <td>
+                    <div class="element"><a href="{{ link }}">{{ text }}</a></div>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
