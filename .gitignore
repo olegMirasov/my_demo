@@ -5,4 +5,10 @@ local_settings.py
 .venv/
 .venv
 venv/
+.myvenv/
+.myvenv
+myvenv/
 .media/
+tempfiles/
+.tempfiles/
+tempfiles

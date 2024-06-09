@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'my_call_load',
     'my_find_duplicate',
     'my_manager_search',
+    'my_product_to_excel',
 ]
 
 MIDDLEWARE = [

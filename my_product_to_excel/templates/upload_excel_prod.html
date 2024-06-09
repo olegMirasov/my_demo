@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Скачать список товаров</title>
+    <style>
+        .form122 {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+        <form method="post" class="form122">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Скачать файл (excel)">
+        </form>
+
+</body>
+</html>

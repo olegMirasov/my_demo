@@ -1,4 +1,4 @@
-django~=4.2.3
+
 django-mptt
 mutagen~=1.46.0
 django-prettyjson
@@ -16,9 +16,11 @@ beautifulsoup4~=4.12.2
 pytz~=2023.3
 prettytable~=3.8.0
 six~=1.16.0
-pandas~=2.0.3
+
 openai~=0.27.8
 httpx~=0.24.1
 certifi~=2023.5.7
 cryptography~=41.0.3
 python-telegram-bot~=13.0
+Django~=5.0.6
+pandas~=2.2.2
