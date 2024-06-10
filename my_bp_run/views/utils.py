@@ -1,4 +1,6 @@
 from django import forms
+import time
+import asyncio
 
 
 crm_fields = {'Лиды': 'crm.lead.list',
@@ -30,10 +32,22 @@ def get_form(choices):
 
 
 def run_process(but, bp_id, companies):
-    for company in companies:
-        but.call_api_method('bizproc.workflow.start', {
-            'TEMPLATE_ID': bp_id,
-            'DOCUMENT_ID': ['crm', 'CCrmDocumentCompany', str(company['ID'])]
-        })
+    start = time.time()
+    asyncio.run(_run_process_many(but, bp_id, companies))
+    duration = time.time() - start
 
-    return f'Успешно. Процесс запущен по {len(companies)} компаниям'
+    return f'Успешно. Процесс запущен по {len(companies)} компаниям. Время выполнения {round(duration)} c.'
+
+
+async def _run_process_many(but, bp_id, companies):
+    temp = []
+    for i in companies:
+        temp.append(run_one_company(but, bp_id, i['ID']))
+    return await asyncio.gather(*temp)
+
+
+async def run_one_company(but, bp_id, coompany_id):
+    return await asyncio.to_thread(but.call_api_method, 'bizproc.workflow.start', {
+            'TEMPLATE_ID': bp_id,
+            'DOCUMENT_ID': ['crm', 'CCrmDocumentCompany', coompany_id]
+        })

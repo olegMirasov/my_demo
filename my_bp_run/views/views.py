@@ -10,6 +10,8 @@ def my_run_bizproc(request):
     # получаем данные для формы
     bp = get_actual_bp(but)
     choices = ((key, key) for key in bp)
+
+    # Работа POST
     if request.method == 'POST':
         form = get_form(choices)(request.POST)
 

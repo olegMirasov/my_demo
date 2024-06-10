@@ -2,19 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Запуск бизнес процесса</title>
+    <style>
+        .form_1 {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(200, 200, 180));
+            height: 100vh;
+        }
+
+    </style>
 </head>
 <body>
 <h1>Запуск бизнес процесса по компаниям</h1>
+
+<div class="form_1">
 {% if done %}
-<h3>{{ message }}</h3>
-<button onclick="document.location='{% url 'reload_start'%}'">На главную</button>
+
+    <h3>{{ message }}</h3>
+    <button onclick="document.location='{% url 'reload_start'%}'">На главную</button>
+
+
 {% else %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <p><input type="submit" value="Запустить процесс"></p>
 </form>
+    <br><button onclick="document.location='{% url 'reload_start'%}'">На главную</button>
 {% endif %}
+</div>
 </body>
 </html>
