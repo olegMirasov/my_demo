@@ -52,6 +52,7 @@ urlpatterns = [
     path('my_find_duplicate/', include('my_find_duplicate.urls')),
     path('my_manager_search/', include('my_manager_search.urls')),
     path('my_upload_excel/', include('my_product_to_excel.urls')),
+    path('my_bp_run/', include('my_bp_run.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Запуск бизнес процесса по компаниям</h1>
+{% if done %}
+<h3>{{ message }}</h3>
+<button onclick="document.location='{% url 'reload_start'%}'">На главную</button>
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" value="Запустить процесс"></p>
+</form>
+{% endif %}
+</body>
+</html>

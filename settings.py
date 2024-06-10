@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'my_find_duplicate',
     'my_manager_search',
     'my_product_to_excel',
+    'my_bp_run',
 ]
 
 MIDDLEWARE = [
