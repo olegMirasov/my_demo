@@ -45,7 +45,9 @@ class CallInfo(models.Model):
         })
 
         self.call_id = res['result']['CALL_ID']
-        self.duration = int(MP3(self.file).info.length)
+        self.duration = 0
+        if self.file:
+            self.duration = int(MP3(self.file).info.length)
         self.filename = str(self.file)[len(self.inner_media_path):-len(os.path.splitext(str(self.file))[-1])]
 
         self.save()
@@ -71,3 +73,5 @@ class CallInfo(models.Model):
         except Exception as ex:
             print('Не удалось загрузить звонок')
             print(ex)
+
+

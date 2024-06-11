@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'my_manager_search',
     'my_product_to_excel',
     'my_bp_run',
+    'my_comp_from_gtable',
 ]
 
 MIDDLEWARE = [

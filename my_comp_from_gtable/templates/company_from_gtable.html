@@ -1,0 +1,49 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+    Импорт компаний из гугл таблиц
+{% endblock %}
+
+{% block styles %}
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(200, 200, 180));
+            height: 100vh;
+        }
+    </style>
+{% endblock %}
+
+{% block header %}
+<div class="header">
+    <h1>Импорт компаний из гугл таблиц</h1>
+    <button onclick="document.location='{% url 'reload_start'%}'">Назад</button>
+</div>
+
+        {% if done %}
+            <h2>Ссылка обработана</h2>
+        {% else %}
+            <h2>Вставьте ссылку на гугл документ</h2>
+        {% endif %}
+
+
+
+{% endblock %}
+
+{% block content %}
+        {% if done %}
+            <h2>Результаты</h2>
+            {% for item, count in info %}
+                <p>[+] Тип: {{ item }}, Добавлено: {{ count }}</p>
+            {% endfor %}
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p><input type="submit" value="Импортировать в Bitrix"></p>
+            </form>
+        {% endif %}
+{% endblock %}

@@ -53,6 +53,7 @@ urlpatterns = [
     path('my_manager_search/', include('my_manager_search.urls')),
     path('my_upload_excel/', include('my_product_to_excel.urls')),
     path('my_bp_run/', include('my_bp_run.urls')),
+    path('my_import_company/', include('my_comp_from_gtable.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
