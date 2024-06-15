@@ -1,0 +1,104 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+    Постановка задач "Лучший звонок менеджера за день"
+{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #007bff;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px; /* Увеличение размера кнопок */
+            margin: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавление тени */
+            border-radius: 20px; /* Закругление углов кнопок */
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Изменение шрифта */
+            font-size: 16px; /* Изменение размера шрифта */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .salam {
+            background-color: darkred;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info-text {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin-top: 40px; /* увеличим верхний отступ */
+            margin-bottom: 20px; /* добавим нижний отступ */
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}
+
+{% block header %}
+    <div class="header">
+        <h1>Приложение "Лучший звонок менеджера за день"</h1>
+        <button class="salam" onclick="document.location='{% url 'reload_start'%}'">Назад</button>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="info-text">
+        {{ message }}
+    </div>
+    {% if flag %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Полное имя</th>
+            <th>Количество звонков</th>
+            <th>ID задачи</th>
+        </tr>
+        {% for id, name, count, task in items %}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{count}}</td>
+            <td>{{task}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

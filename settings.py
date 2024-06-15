@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'my_product_to_excel',
     'my_bp_run',
     'my_comp_from_gtable',
+    'my_best_call',
 ]
 
 MIDDLEWARE = [
