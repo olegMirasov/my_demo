@@ -55,6 +55,7 @@ urlpatterns = [
     path('my_bp_run/', include('my_bp_run.urls')),
     path('my_import_company/', include('my_comp_from_gtable.urls')),
     path('my_best_call/', include('my_best_call.urls')),
+    path('my_sort_field/', include('sort_fields.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

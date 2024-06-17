@@ -24,5 +24,5 @@ def find_duplicate(request):
 
     form = ChoiceForm()
 
-    return render(request, 'choice_field.html', locals())
+    return render(request, 'my_sort_fields.html', locals())
 
