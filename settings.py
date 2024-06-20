@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'my_bp_run',
     'my_comp_from_gtable',
     'my_best_call',
-    'sort_fields'
+    'sort_fields',
+    'my_open_ai',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Аудио в текст</title>
+    <style>
+        .form_1 {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .ok_text {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(200, 200, 180));
+            height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Преобразование аудио в текст</h1>
+
+<div class="form_1">
+{% if done %}
+
+    <h3>{{ info }}</h3>
+    <div class="ok_text">
+        <p>{{ text }}</p>
+    </div>
+
+    <button onclick="document.location='{% url 'reload_start'%}'">На главную</button>
+
+
+{% else %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" value="Преобразовать в текст"></p>
+</form>
+    <br><p>{{ info }}</p>
+    <br><button onclick="document.location='{% url 'reload_start'%}'">На главную</button>
+{% endif %}
+</div>
+</body>
+</html>
