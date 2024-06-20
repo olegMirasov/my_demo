@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tg_bot</title>
+    <style>
+        .cont {
+            width: 90vh;
+            height: auto;
+            margin: 0 auto;
+            padding: 5px;
+            border: solid 1px green;
+            border-radius: 5px;
+            background-color: rgba(54, 255, 87, 0.084);
+        }
+
+        .form1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            margin-top: 20px;
+            background-color: rgb(33, 197, 74);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            padding: 10px 10px 10px 5px;
+        }
+
+        input {
+            padding: 10px 0px 10px 10px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Отправка сообщение в Телеграмм чат</h1>
+<div class="cont">
+    {% if not done %}
+    <form method="post" class="form1">
+        {% csrf_token %}
+        <label>Токен бота</label>
+        <input type="text" name="bot_id" required>
+        <label>ID чата</label>
+        <input type="text" name="chat_id" required>
+        <label>Сообщение</label>
+        <textarea name="message" rows="5" cols="20" required></textarea>
+        <input type="submit" value="Отправить сообщение" class="button">
+
+    </form>
+    {% endif %}
+    <p>{{ info }}</p>
+</div>
+
+
+</body>
+</html>

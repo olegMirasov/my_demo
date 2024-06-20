@@ -57,6 +57,7 @@ urlpatterns = [
     path('my_best_call/', include('my_best_call.urls')),
     path('my_sort_field/', include('sort_fields.urls')),
     path('my_open_ai/', include('my_open_ai.urls')),
+    path('my_message_to_tg/', include('my_message_to_tg.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
