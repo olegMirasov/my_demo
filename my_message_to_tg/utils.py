@@ -1,6 +1,4 @@
 
-# 7094560822:AAEmuKdm4rrFVDTkxawCTszSqyN--Az8PC8
-# 1240601236
 
 from integration_utils.vendors.telegram import Bot
 
