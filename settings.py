@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'sort_fields',
     'my_open_ai',
     'my_message_to_tg',
+    'my_calls_to_tg',
 ]
 
 MIDDLEWARE = [
