@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Экспорт компаний в базу данных</title>
+    <style>
+        .cont {
+            width: 90vh;
+            height: auto;
+            margin: 0 auto;
+            padding: 5px;
+            border: solid 1px green;
+            border-radius: 5px;
+            background-color: rgba(54, 255, 87, 0.084);
+        }
+
+        .form1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            margin-top: 20px;
+            background-color: rgb(33, 197, 74);
+            border-radius: 5px;
+        }
+
+        .choice {
+            height: 1cm;
+            margin: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            padding: 10px 10px 10px 5px;
+        }
+
+        input {
+            padding: 10px 0px 10px 10px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Экспорт компаний в базу данных</h1>
+<div class="cont">
+    <form method="post" class="form1">
+        {% csrf_token %}
+
+        <input type="submit" value="Обновить данные по компаниям в БД" class="button">
+
+    </form>
+    <br>
+    <p>{{ info }}</p>
+</div>
+
+
+</body>
+</html>
