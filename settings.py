@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'my_message_to_tg',
     'my_calls_to_tg',
     'my_robot',
+    'my_company_to_db',
 ]
 
 MIDDLEWARE = [
