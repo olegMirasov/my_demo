@@ -59,6 +59,7 @@ urlpatterns = [
     path('my_open_ai/', include('my_open_ai.urls')),
     path('my_message_to_tg/', include('my_message_to_tg.urls')),
     path('my_calls_to_tg/', include('my_calls_to_tg.urls')),
+    path('my_robot/', include('my_robot.urls', 'my_robot')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

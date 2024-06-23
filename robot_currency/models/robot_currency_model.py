@@ -45,6 +45,7 @@ class CurrencyRobot(BaseRobot):
     }
 
     def process(self) -> dict:
+        print('hui')
         try:
             responce = req.get('https://www.cbr-xml-daily.ru/daily_json.js')
             data = responce.json()

@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'my_open_ai',
     'my_message_to_tg',
     'my_calls_to_tg',
+    'my_robot',
 ]
 
 MIDDLEWARE = [
