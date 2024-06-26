@@ -6,7 +6,7 @@ class MessageRobot(BaseRobot):
     CODE = 'message_robot'
     NAME = 'Робот пишет случайное сообщение'
     USE_SUBSCRIPTION = True
-    USE_PLACEMENT = False
+    # USE_PLACEMENT = False
     # PLACEMENT_HANDLER =
 
     PROPERTIES = {
