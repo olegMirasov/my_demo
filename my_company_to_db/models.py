@@ -13,7 +13,7 @@ class BitrixCompany(models.Model):
 
         pre_company = []
         for index, data in companies.items():
-            data_json = json.dumps(data)
+            data_json = json.dumps(data, ensure_ascii=False)
             pre_company.append(BitrixCompany(id=index, data=data_json))
 
         len_comp = len(pre_company)

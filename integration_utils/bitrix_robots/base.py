@@ -123,7 +123,7 @@ class BaseBitrixRobot(models.Model):
             params['RETURN_PROPERTIES'] = cls.RETURN_PROPERTIES
         if cls.USE_SUBSCRIPTION is not None:
             params['USE_SUBSCRIPTION'] = bx_bool(cls.USE_SUBSCRIPTION)
-
+        print('_robot_add_params', params)
         return params
 
     @classmethod

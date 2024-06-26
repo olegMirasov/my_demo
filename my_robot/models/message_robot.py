@@ -1,13 +1,15 @@
 from integration_utils.bitrix_robots.models import BaseRobot
 import requests as req
+from settings import DOMAIN
 
 
 class MessageRobot(BaseRobot):
     CODE = 'message_robot'
     NAME = 'Робот пишет случайное сообщение'
     USE_SUBSCRIPTION = True
-    # USE_PLACEMENT = False
-    # PLACEMENT_HANDLER =
+    USE_PLACEMENT = False
+    APP_DOMAIN = DOMAIN
+
 
     PROPERTIES = {
         'user': {
@@ -36,18 +38,17 @@ class MessageRobot(BaseRobot):
     }
 
     def process(self) -> dict:
-        print('start ept')
         try:
-            '''responce = req.get('https://www.cbr-xml-daily.ru/daily_json.js')
-            data = responce.json()
-            valute = data['Valute'][self.props['valute']]['Value']'''
-            message = 'Test 01 for robot\nOlala'
+            responce = req.get('https://v2.jokeapi.dev/joke/Programming?format=txt')
+            text = responce.text
+            message = f'Шутка про программирование\n{text}'
             self.dynamic_token.call_api_method('bizproc.event.send', {"event_token": self.event_token,
-                                                                      "return_values": {"message": message}})
+                                                                      "return_values": {"message": message, 'ok': True}})
             print('skbfaifabusaoh ept')
         except KeyError:
             self.dynamic_token.call_api_method('bizproc.event.send', {"event_token": self.event_token,
-                                                                      "return_values": {"message": 'Не удалось получить сообщение'}})
+                                                                      "return_values": {"message": 'Не удалось получить сообщение',
+                                                                                        'ok': False}})
 
         except Exception as exc:
             return dict(ok=False, error=str(exc))
