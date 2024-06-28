@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'my_calls_to_tg',
     'my_robot',
     'my_company_to_db',
+    'my_deadline_task',
 ]
 
 MIDDLEWARE = [
