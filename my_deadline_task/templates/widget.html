@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сдвиг задачи</title>
+</head>
+<body>
+<form action="{% url 'my_deadline_main' %}" method="post">
+    {% csrf_token %}
+    <button onclick="">JS</button>
+    <button type="submit" value="1">11</button>
+    <button type="submit" value="2">22</button>
+    <button type="submit" value="3">33</button>
+</form>
+<p>{{ info }}</p>
+</body>
+</html>

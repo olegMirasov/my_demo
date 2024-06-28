@@ -61,6 +61,7 @@ urlpatterns = [
     path('my_calls_to_tg/', include('my_calls_to_tg.urls')),
     path('my_robot/', include('my_robot.urls', 'my_robot')),
     path('my_comp_to_db/', include('my_company_to_db.urls')),
+    path('my_task_deadline/', include('my_deadline_task.urls')),
 
 
 
