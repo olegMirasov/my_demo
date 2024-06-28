@@ -5,11 +5,10 @@ from settings import DOMAIN
 
 class MessageRobot(BaseRobot):
     CODE = 'message_robot'
-    NAME = 'Робот пишет случайное сообщение'
+    NAME = 'Робот отправляет шутки про программистов'
     USE_SUBSCRIPTION = True
     USE_PLACEMENT = False
     APP_DOMAIN = DOMAIN
-
 
     PROPERTIES = {
         'user': {
@@ -44,7 +43,6 @@ class MessageRobot(BaseRobot):
             message = f'Шутка про программирование\n{text}'
             self.dynamic_token.call_api_method('bizproc.event.send', {"event_token": self.event_token,
                                                                       "return_values": {"message": message, 'ok': True}})
-            print('skbfaifabusaoh ept')
         except KeyError:
             self.dynamic_token.call_api_method('bizproc.event.send', {"event_token": self.event_token,
                                                                       "return_values": {"message": 'Не удалось получить сообщение',
