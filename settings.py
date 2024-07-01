@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'my_robot',
     'my_company_to_db',
     'my_deadline_task',
+    'my_select_user',
 ]
 
 MIDDLEWARE = [
