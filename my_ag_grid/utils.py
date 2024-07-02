@@ -4,7 +4,7 @@ from .grid_worker import *
 
 crm_classes = {'Лиды': Lead,
                'Компании': Company,
-               'Контакты': CRM,
+               'Контакты': Contact,
                'Товары': CRM}
 
 
@@ -16,7 +16,7 @@ crm_commands = {'Лиды': 'crm.lead.list',
 
 def get_data_for_template(but, choice):
     crm_list = get_crm_list(but, name=choice)
-    crm_ent = crm_classes.get(choice)(crm_list)
+    crm_ent = crm_classes.get(choice)(crm_list)  # формируем опции таблицы с помощью класса
 
     worker = GridHTML(div_id='myGridCrm', crm=crm_ent)
     return worker.get_data_for_template()
@@ -24,8 +24,6 @@ def get_data_for_template(but, choice):
 
 def get_crm_list(but, name):
     result = but.call_list_method(crm_commands.get(name))
-    print(name)
-    print(result)
     return result
 
 

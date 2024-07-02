@@ -3,12 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Отображение CRM сущностей</title>
+    <style>
+        .button {
+            width: 5cm;
+            height: 1cm;
+            background-color: #d4f3f8;
+            text-align: center;
+            border: solid 1px black;
+            border-radius: 5px;
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+
+        table {
+            background-color: #d4f3f8;
+        }
+
+        h2 {
+            text-align: center;
+            margin-left: 20px;
+        }
+
+
+    </style>
 </head>
 <body>
+<div class="header">
+    <h2>CRM в таблице AG-Grid</h2>
+    <button class="button" onclick="document.location='{% url 'reload_start'%}'">На главную</button>
+</div>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <p><input class="input122" type="submit" value="Найти дубликаты"></p>
+    <p><input class="input122" type="submit" value="Показать таблицу"></p>
 </form>
 {{ data.html|safe }}
 </body>
