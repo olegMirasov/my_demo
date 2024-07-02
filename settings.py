@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'my_company_to_db',
     'my_deadline_task',
     'my_select_user',
+    'my_ag_grid',
 ]
 
 MIDDLEWARE = [

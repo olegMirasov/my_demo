@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отображение CRM сущностей</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input class="input122" type="submit" value="Найти дубликаты"></p>
+</form>
+{{ data.html|safe }}
+</body>
+{{ data.script|safe }}
+</html>
