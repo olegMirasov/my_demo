@@ -1,0 +1,30 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+    chat bot
+{% endblock %}
+
+{% block header %}
+    <div class="header">
+        <h1>Установка чат-бота.</h1>
+        <h2>Сохранение заметок, анализ связей</h2>
+        <button onclick="document.location='{% url 'reload_start'%}'">Назад</button>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <form action="{% url 'my_load_bot' %}" method="POST">
+            <button class="c-button">Установить</button>
+        </form>
+
+        <form action="{% url 'my_delete_bot' %}" method="POST">
+            <button class="c-button">Удалить</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="//api.bitrix24.com/api/v1/"></script>
+{% endblock %}
+{% load static %}

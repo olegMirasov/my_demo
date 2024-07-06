@@ -64,6 +64,7 @@ urlpatterns = [
     path('my_task_deadline/', include('my_deadline_task.urls')),
     path('my_select_user/', include('my_select_user.urls')),
     path('crm_ag_grid/', include('my_ag_grid.urls')),
+    path('notes_bot/', include('my_chat_bot.urls')),
 
 
 

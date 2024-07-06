@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'my_deadline_task',
     'my_select_user',
     'my_ag_grid',
+    'my_chat_bot',
 ]
 
 MIDDLEWARE = [
