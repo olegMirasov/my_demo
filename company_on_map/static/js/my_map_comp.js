@@ -1,13 +1,16 @@
-let counter = 0
+let counter = 0;
+let globalMap = 0;
 
 ymaps.ready(init);
 function init(){
-    let myMap = new ymaps.Map("map", {
+    myMap = new ymaps.Map("map", {
                 center: [59.94, 30.39],
                 zoom: 10
             }, {
             searchControlProvider: 'yandex#search'
             });
+
+
 
     let req = new XMLHttpRequest();
 
@@ -20,6 +23,7 @@ function init(){
                 object.then(function (res) {
                     let coor = res.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates
                     myMap.geoObjects.add(new ymaps.Placemark([coor[1], coor[0]], {balloonContent: `<strong>${comp['title']}</strong>` + '\n' + `${comp['addr'][0]['PROVINCE']}, ${comp['addr'][0]['ADDRESS_1']}`}, ));
+                    add_button(comp, coor)
                 })
             }
         }
@@ -27,23 +31,28 @@ function init(){
 
     req.open("GET", "/company_on_map/companies");
     req.send();
-
-    console.log('start div')
-
-    for (let i =0; i < 5; i++) {
-        add_div(i)
-    };
+    globalMap = myMap;
 }
 
 
-function add_div(value) {
+function add_button(comp, coor) {
     let target = document.getElementById("info");
-    let text = get_text(value);
-    target.innerHTML += text;
+    let text = get_text(comp);
+    let worker = get_worker(coor);
+    let finish = '<div class="c_item">' + worker + text + "</button></div>"
+    target.innerHTML += finish
 };
 
-function get_text(value) {
-    let text = `<div class="c_item">This text is ${counter} and value ${value}</div>`
-    counter += 1
-    return text
+function get_worker(coor) {
+    res = `<button class="c_but" onclick="centered([${coor[1]},${coor[0]}])">`
+    return res
 };
+
+function centered(coor) {
+    console.log(coor);
+    globalMap.setCenter(coor, 15);
+}
+
+function get_text(comp) {
+    return `<strong>${comp['title']}</strong>` + '<br>' + `${comp['addr'][0]['PROVINCE']}, ${comp['addr'][0]['ADDRESS_1']}`
+}
