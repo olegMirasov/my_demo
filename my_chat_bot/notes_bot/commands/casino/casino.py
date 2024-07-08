@@ -6,5 +6,5 @@ class Casino(Command):
     DESCRIPTION = 'Простая игра в рулетку (Казино)'
 
     @classmethod
-    def answer(cls, bot_id, dialog_id, answer, user):
+    def answer(cls, bot_id, dialog_id, user_message, user):
         return {'BOT_ID': bot_id, 'DIALOG_ID': dialog_id, 'MESSAGE': "casino worker"}

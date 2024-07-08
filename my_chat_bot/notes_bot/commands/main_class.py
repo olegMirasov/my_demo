@@ -1,5 +1,6 @@
 import json
 
+
 class Command:
     TAG = '!write yours tag'
     DESCRIPTION = '!write yours DESCRIPTION'
@@ -10,7 +11,7 @@ class Command:
 
     @classmethod
     def reset_user(cls, user):
-        data = json.dumps({})
+        data = json.dumps({'status': 'None'})
         user.data = data
         user.status = ''
         user.save()

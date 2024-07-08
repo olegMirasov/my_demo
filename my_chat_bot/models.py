@@ -6,7 +6,7 @@ class ChatBotControl(models.Model):
     id = models.IntegerField(primary_key=True, unique=True)  # user id in bitrix
     status = models.CharField(default='')  # status для текущей сессии, пустой статус - сессия отсутствует
 
-    def_json = json.dumps({})
+    def_json = json.dumps({'status': 'None'})
     data = models.JSONField(default=def_json)  # данные для текущей сессии
 
     def __str__(self):

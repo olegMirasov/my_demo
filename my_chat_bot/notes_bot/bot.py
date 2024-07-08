@@ -13,14 +13,14 @@ Info.create_descriptions(REGISTER)
 
 class Bot:
     # imbot.register
-    CODE = 'note_bot'
+    CODE = 'my_some_bot'
     TYPE = 'B'
     EVENT_HANDLER = BOT_EVENT_HANDLER
     OPENLINE = 'Y'
     PROPERTIES = {
-        'NAME': 'Багаж заметок',
+        'NAME': 'Игробот',
         'COLOR': 'GREEN',
-        'WORK_POSITION': 'Сохраняет заметки, анализирует взаимосвязи'
+        'WORK_POSITION': 'Делу - время, потехе - "Игробот"'
     }
 
     @classmethod
