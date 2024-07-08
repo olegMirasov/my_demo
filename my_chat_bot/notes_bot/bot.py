@@ -1,8 +1,14 @@
 from ..config import BOT_EVENT_HANDLER
+from ..models import ChatBotControl
+from .command_register import REGISTER
+from .commands.info.info import Info
 
-INFO = '''Этот бот позволяет сохранять ваши заметки.
-/add - Добавить новую
-/find - Найти ченибудькакнибудь'''
+
+COMMANDS = {use_command.TAG: use_command for use_command in REGISTER}
+
+# Создаем актуальные описания для команды информации
+INFO_COMMAND = Info.TAG
+Info.create_descriptions(REGISTER)
 
 
 class Bot:
@@ -14,7 +20,7 @@ class Bot:
     PROPERTIES = {
         'NAME': 'Багаж заметок',
         'COLOR': 'GREEN',
-        'WORK_POSITION': 'Сохраняет заметки, анализирует взамосвязи'
+        'WORK_POSITION': 'Сохраняет заметки, анализирует взаимосвязи'
     }
 
     @classmethod
@@ -29,11 +35,30 @@ class Bot:
         return props
 
     @classmethod
-    def answer(cls, message):
-        if message == '/info':
-            return INFO
-        if message == '/add':
-            return 'add some note'
-        if message == 'find':
-            return 'find some need'
-        return 'not avalibl command'
+    def answer(cls, but, post):
+        for k, v in post.items():
+            print(k, v)
+
+        # Получаем необходимые данные
+        bot_id = post.get('data[PARAMS][TO_USER_ID]')
+        dialog_id = post.get('data[PARAMS][DIALOG_ID]')
+        message = post.get('data[PARAMS][MESSAGE]')
+        user_id = post.get('data[USER][ID]')
+
+        # Узнаем, есть ли у пользователя текущая сессия в одном из обработчиков
+        user = ChatBotControl.objects.get_or_create(pk=user_id)[0]
+        print(user)
+
+        if user.status:
+            command = COMMANDS.get(user.status)
+        else:
+            command = COMMANDS.get(message)
+
+        if not command:
+            answer = f'Данной команды не найдено. Попробуйте отправить команду "{INFO_COMMAND}" для получения информации'
+            but.call_api_method('imbot.message.add', {'BOT_ID': bot_id, 'DIALOG_ID': dialog_id, 'MESSAGE': answer})
+            return
+
+        answer = command.answer(bot_id, dialog_id, message, user)
+
+        but.call_api_method('imbot.message.add', answer)
