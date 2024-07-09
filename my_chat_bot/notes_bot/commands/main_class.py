@@ -6,7 +6,7 @@ class Command:
     DESCRIPTION = '!write yours DESCRIPTION'
 
     @classmethod
-    def answer(cls, bot_id, dialog_id, message, user):
+    def answer(cls,but, bot_id, dialog_id, user_message, user, message_id, *args, **kwargs):
         raise ValueError(f'Необходимо переопределить метод "answer" {cls.__name__}')
 
     @classmethod

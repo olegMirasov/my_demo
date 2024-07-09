@@ -30,7 +30,7 @@ class Number(Command):
     DESCRIPTION = 'Игра - угадай число'
 
     @classmethod
-    def answer(cls, bot_id, dialog_id, user_message, user):
+    def answer(cls,but, bot_id, dialog_id, user_message, user, *args, **kwargs):
         # return {'BOT_ID': bot_id, 'DIALOG_ID': dialog_id, 'MESSAGE': "Сообщение"}
         if not user.status:
             user.status = cls.TAG
